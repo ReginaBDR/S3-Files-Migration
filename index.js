@@ -9,31 +9,6 @@ const localTokenUrl = "http://localhost:9080/auth/realms/jhipster/protocol/openi
 const localPackagesUrl = "http://localhost:8080/services/productslibraryapp/api/all-products";
 const localAttributesUrl = "http://localhost:8080/services/productslibraryapp/api/products";
 const localProjectsUrl = "http://localhost:8080/services/projectsapp/api/get-projects-ids-by-product-ids";
-// * TeamRed
-const redTokenUrl = "https://auth.red.platform-development.infrastructurebuilder.ai/auth/realms/jhipster/protocol/openid-connect/token"
-const redPackagesUrl = "https://red.platform-development.infrastructurebuilder.ai/services/productslibraryapp/api/all-products";
-const redAttributesUrl = "https://red.platform-development.infrastructurebuilder.ai/services/productslibraryapp/api/products";
-const redProjectsUrl = "https://red.platform-development.infrastructurebuilder.ai/services/projectsapp/api/get-projects-ids-by-product-ids";
-// * Core2
-const core2TokenUrl = "https://auth.core2.platform-development.infrastructurebuilder.ai/auth/realms/jhipster/protocol/openid-connect/token"
-const core2PackagesUrl = "https://core2.platform-development.infrastructurebuilder.ai/services/productslibraryapp/api/all-products";
-const core2AttributesUrl = "https://core2.platform-development.infrastructurebuilder.ai/services/productslibraryapp/api/products";
-const core2ProjectsUrl = "https://core2.platform-development.infrastructurebuilder.ai/services/projectsapp/api/get-projects-ids-by-product-ids";
-// * UAT
-const uatTokenUrl = "https://auth.platform-uat.infrastructurebuilder.ai/auth/realms/jhipster/protocol/openid-connect/token"
-const uatPackagesUrl = "https://platform-uat.infrastructurebuilder.ai/services/productslibraryapp/api/all-products";
-const uatAttributesUrl = "https://platform-uat.infrastructurebuilder.ai/services/productslibraryapp/api/products";
-const uatProjectsUrl = "https://platform-uat.infrastructurebuilder.ai/services/projectsapp/api/get-projects-ids-by-product-ids";
-// * Staging
-const stagingTokenUrl = "https://auth.platform-staging.infrastructurebuilder.ai/auth/realms/jhipster/protocol/openid-connect/token"
-const stagingPackagesUrl = "https://platform-staging.infrastructurebuilder.ai/services/productslibraryapp/api/all-products";
-const stagingAttributesUrl = "https://platform-staging.infrastructurebuilder.ai/services/productslibraryapp/api/products";
-const stagingProjectsUrl = "https://platform-staging.infrastructurebuilder.ai/services/projectsapp/api/get-projects-ids-by-product-ids";
-// * Production
-const prodTokenUrl = "https://auth.platform.infrastructurebuilder.ai/auth/realms/jhipster/protocol/openid-connect/token"
-const prodPackagesUrl = "https://platform.infrastructurebuilder.ai/services/productslibraryapp/api/all-products";
-const prodAttributesUrl = "https://platform.infrastructurebuilder.ai/services/productslibraryapp/api/products";
-const prodProjectsUrl = "https://platform.infrastructurebuilder.ai/services/projectsapp/api/get-projects-ids-by-product-ids";
 
 // *
 // * Config
@@ -43,14 +18,14 @@ let authToken;
 const urlencoded = new URLSearchParams();
 urlencoded.append("response_type", "token");
 urlencoded.append("client_id", "web_app");
-urlencoded.append("username", "admin"); // prod: admin  staging: admin@everest.com
-urlencoded.append("password", "USyIBAgyWQIMYI099PCf"); // prod: USyIBAgyWQIMYI099PCf  staging: AdminEverest123
+urlencoded.append("username", ""); 
+urlencoded.append("password", ""); 
 urlencoded.append("grant_type", "password");
 
-const tokenUrl = prodTokenUrl;
-const packagesUrl = prodPackagesUrl;
-const attributesUrl = prodAttributesUrl;
-const projectsUrl= prodProjectsUrl;
+const tokenUrl = localTokenUrl;
+const packagesUrl = localPackagesUrl;
+const attributesUrl = localAttributesUrl;
+const projectsUrl= localProjectsUrl;
 
 // *
 // * Script
