@@ -3,35 +3,25 @@ import AWS from 'aws-sdk';
 // *
 // * Variables
 // *
-const localSourceBucket = "platform-products-library-files-local"
-const localDestinationBucket = "platform-filemanager-files-development";
-const localAccessKeyId = "AKIA3RCXEM4J6JMTVAKM";
-const localSecretAccessKey = "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";
-// * TeamRed
-const redSourceBucket = "platform-products-library-files-red"
-const redDestinationBucket = "platform-filemanager-files-red";
-const redAccessKeyId = "AKIA3RCXEM4J6JMTVAKM";
-const redSecretAccessKey = "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";
-// * Core2
-const core2SourceBucket = "platform-products-library-files-core2"
-const core2DestinationBucket = "platform-filemanager-files-core2";
-const core2AccessKeyId = "AKIA3RCXEM4J6JMTVAKM";
-const core2SecretAccessKey = "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";
+const localSourceBucket = ""
+const localDestinationBucket = "";
+const localAccessKeyId = "";
+const localSecretAccessKey = "";
 // * UAT
-const uatSourceBucket = "platform-products-library-files-uat"
-const uatDestinationBucket = "platform-filemanager-files-uat";
-const uatAccessKeyId = "AKIA3RCXEM4J6JMTVAKM";
-const uatSecretAccessKey = "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";
+const uatSourceBucket = ""
+const uatDestinationBucket = "";
+const uatAccessKeyId = "";
+const uatSecretAccessKey = "";
 // * Staging
-const stagingSourceBucket = "platform-products-library-files-staging"
-const stagingDestinationBucket = "platform-filemanager-files-staging";
-const stagingAccessKeyId = "AKIA3RCXEM4JS5YZ5AOF";
-const stagingSecretAccessKey = "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";
+const stagingSourceBucket = ""
+const stagingDestinationBucket = "";
+const stagingAccessKeyId = "";
+const stagingSecretAccessKey = "";
 // * Production
-const prodSourceBucket = "platform-products-library-files-prod"
-const prodDestinationBucket = "platform-filemanager-files-prod";
-const prodAccessKeyId = "AKIA3RCXEM4JRPZ4ZVVI";
-const prodSecretAccessKey = "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";
+const prodSourceBucket = ""
+const prodDestinationBucket = "";
+const prodAccessKeyId = "";
+const prodSecretAccessKey = "";
 
 
 // *
@@ -60,7 +50,7 @@ export const failedUploads = [];
 // *
 export const migrateFile = (sourceKey, destinationKey) => {
 
-sourceS3.copyObject({Bucket: "platform-filemanager-files-prod", CopySource: "/platform-products-library-files-prod/" + sourceKey, Key: destinationKey}, function (err, data) {
+sourceS3.copyObject({Bucket: prodDestinationBucket, CopySource: prodSourceBucket + sourceKey, Key: destinationKey}, function (err, data) {
   if (err) {
       console.log(`Error uploading file from ${sourceKey} to ${destinationKey}`, err, err.stack);
       failedUploads.push({'sourceKey': sourceKey, 'destinationKey': destinationKey})
