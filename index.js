@@ -117,11 +117,10 @@ new Promise((resolve, reject) => {
       // * For each attribute migrate file and update key
       allAttributesWithPackage.forEach(attribute => {
 
-        const sourcePath = attribute.value.s3uri; // 'productsFiles/Gen 4(2022-03-03 23_00_15)-thumbnail-500(2022-12-06 14:52:24).jpeg'
+        const sourcePath = attribute.value.s3uri;
         const fileName = sourcePath.split(/\/(?=[^/]+$)/)[1];
         const productId = attribute.id.toString();
         let destinationPath;
-        // const oldSourcePath = 'productsFiles/' + fileName;  // ! Use only if file upload fails to recover the files.
 
         if (attribute.productTypeId === 1) {
           destinationPath = `${attribute.tenantId}/package-library/package/${attribute.id}/category/${attribute.key}/${fileName}`;
@@ -152,17 +151,14 @@ new Promise((resolve, reject) => {
         }
       })
     }).then(() => {
-
       // * Migrate files from buckets
-      // return filesMigrationPromise.forEach((file) => {
-      //   return migrateFile(...file)
-      // })
-
+      return filesMigrationPromise.forEach((file) => {
+        return migrateFile(...file)
+      })
     })
     .then(() => {
-
       // * Update attributes
-      //return promiseAllInBatches(saveNewAttributePath, attributesUpdatePromise, 7);
+      return promiseAllInBatches(saveNewAttributePath, attributesUpdatePromise, 7);
 
     }).finally(() => {
       console.info('Migration finished successfully!!!');
